@@ -25,4 +25,8 @@ export class CustomerService {
     
     return this.http.get<Customer[]>(this.url);
   }
+
+  deleteCustomer(id: number): Observable<Customer[]> {
+    return this.http.delete<Customer[]>(this.url + '/' + id);
+  }
 }

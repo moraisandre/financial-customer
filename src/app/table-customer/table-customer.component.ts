@@ -1,6 +1,8 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { DialogConfirmationComponent } from '../dialog-confirmation/dialog-confirmation.component';
 import { Customer } from '../models/customer';
 import { CustomerService } from '../services/customer.service';
 
@@ -17,7 +19,8 @@ export class TableCustomerComponent implements OnInit, AfterViewInit {
   pageEvent: PageEvent;
 
   constructor(
-    private customerService: CustomerService
+    private customerService: CustomerService,
+    public dialog: MatDialog,
   ) { }
 
   ngOnInit() {
@@ -41,8 +44,25 @@ export class TableCustomerComponent implements OnInit, AfterViewInit {
         this.dataSource = new MatTableDataSource<Customer>(response);
         this.dataSource.paginator = this.paginator;
         console.log(this.paginator);
-    console.log(this.pageEvent);
+        console.log(this.pageEvent);
       });
+  }
+
+  deleteCustomer(customer: Customer) {
+    this.dialog.open(DialogConfirmationComponent, {
+      data: {
+        customerName: customer.nome
+      }
+    })
+      .afterClosed().subscribe(result => {
+        if (result) {
+          this.customerService.deleteCustomer(customer.id)
+            .subscribe(resp => {
+              this.searchCustomer();
+            });
+        }
+      });;
+
   }
 
 }

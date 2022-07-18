@@ -9,13 +9,15 @@ import { CreateCustomerComponent } from './create-customer/create-customer.compo
 import { TableCustomerComponent } from './table-customer/table-customer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CpfPipe } from './pipes/cpf.pipe';
+import { DialogConfirmationComponent } from './dialog-confirmation/dialog-confirmation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateCustomerComponent,
     TableCustomerComponent,
-    CpfPipe
+    CpfPipe,
+    DialogConfirmationComponent
   ],
   imports: [
     BrowserModule,
