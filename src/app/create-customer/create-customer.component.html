@@ -1,0 +1,47 @@
+<h1>CADASTRO DE CLIENTES</h1>
+  <mat-grid-list cols="4" rowHeight="100px">
+    <mat-grid-tile colspan="2">
+        <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker="false">
+          <mat-label>Nome</mat-label>
+          <input matInput placeholder="Informe o Nome">
+        </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+        <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker="false">
+          <mat-label>CPF</mat-label>
+          <input matInput placeholder="Insira o CPF">
+        </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+        <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker="false">
+          <mat-label>Data de Nascimento</mat-label>
+          <input matInput [matDatepicker]="picker">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker startView="multi-year"></mat-datepicker>
+        </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+        <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker="false">
+          <mat-label>Renda Mensal</mat-label>
+          <input matInput placeholder="Insira o CPF">
+        </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="3">
+        <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker="false">
+          <mat-label>E-mail</mat-label>
+          <input matInput placeholder="Informe o e-mail">
+        </mat-form-field>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+
+  
+  <p class="required-info">
+    *Campos com preenchimento obrigatório
+  </p>
+  
+  <button mat-flat-button color="accent">Salvar</button>
