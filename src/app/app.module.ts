@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from 'src/angular-material.module';
 import { CreateCustomerComponent } from './create-customer/create-customer.component';
 import { TableCustomerComponent } from './table-customer/table-customer.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { TableCustomerComponent } from './table-customer/table-customer.componen
     BrowserModule,
     AppRoutingModule,
     AngularMaterialModule,
+    HttpClientModule,
     BrowserAnimationsModule
   ],
   providers: [],

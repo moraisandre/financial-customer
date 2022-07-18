@@ -4,8 +4,9 @@ import { CreateCustomerComponent } from './create-customer/create-customer.compo
 import { TableCustomerComponent } from './table-customer/table-customer.component';
 
 const routes: Routes = [
+  { path: '', component: TableCustomerComponent },
+  { path: 'customers', component: TableCustomerComponent },
   { path: 'create-customer', component: CreateCustomerComponent },
-  { path: 'customers', component: TableCustomerComponent }
 ];
 
 @NgModule({
