@@ -8,12 +8,14 @@ import { AngularMaterialModule } from 'src/angular-material.module';
 import { CreateCustomerComponent } from './create-customer/create-customer.component';
 import { TableCustomerComponent } from './table-customer/table-customer.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CpfPipe } from './pipes/cpf.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateCustomerComponent,
-    TableCustomerComponent
+    TableCustomerComponent,
+    CpfPipe
   ],
   imports: [
     BrowserModule,
