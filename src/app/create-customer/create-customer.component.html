@@ -1,7 +1,6 @@
 <h1>CADASTRO DE CLIENTES</h1>
 
 <form [formGroup]="customerFormGroup">
-
     <mat-grid-list cols="4" rowHeight="100px">
         <mat-grid-tile colspan="2">
             <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker="false">
@@ -37,7 +36,7 @@
         <mat-grid-tile>
             <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker="false">
                 <mat-label>Data de Nascimento</mat-label>
-                <input matInput [matDatepicker]="picker"  [min]="minDate" [max]="maxDate">
+                <input matInput [matDatepicker]="picker" [min]="minDate" [max]="maxDate" formControlName="dataNascimento">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker startView="multi-year"></mat-datepicker>
                 <mat-error *ngIf="!form['dataNascimento'].pristine && form['dataNascimento'].errors" class="invalid-feedback">
@@ -83,10 +82,12 @@
     </mat-grid-list>
 </form>
 
-
-  
 <p class="required-info">
     *Campos com preenchimento obrigatório
 </p>
 
-<button mat-flat-button color="accent">Salvar</button>
+<button mat-flat-button color="accent"
+    [disabled]="customerFormGroup.invalid"
+    (click)="saveCustomer()">
+    Salvar
+</button>

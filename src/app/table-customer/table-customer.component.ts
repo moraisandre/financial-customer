@@ -60,14 +60,14 @@ export class TableCustomerComponent implements OnInit {
         customerName: customer.nome
       }
     })
-      .afterClosed().subscribe(result => {
-        if (result) {
-          this.customerService.deleteCustomer(customer.id)
-            .subscribe(resp => {
-              this.searchCustomer();
-            });
-        }
-      });;
+    .afterClosed().subscribe(result => {
+      if (result) {
+        this.customerService.deleteCustomer(customer.id)
+          .subscribe(resp => {
+            this.searchCustomer();
+          });
+      }
+    });
 
   }
 

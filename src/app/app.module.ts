@@ -12,7 +12,8 @@ import { CpfPipe } from './pipes/cpf.pipe';
 import { DialogConfirmationComponent } from './dialog-confirmation/dialog-confirmation.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CurrencyMaskModule } from 'ng2-currency-mask';
-import { NgxMaskModule, IConfig } from 'ngx-mask'
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+import { DialogInfoComponent } from './dialog-info/dialog-info.component'
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { NgxMaskModule, IConfig } from 'ngx-mask'
     CreateCustomerComponent,
     TableCustomerComponent,
     CpfPipe,
-    DialogConfirmationComponent
+    DialogConfirmationComponent,
+    DialogInfoComponent
   ],
   imports: [
     BrowserModule,

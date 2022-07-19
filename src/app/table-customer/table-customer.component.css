@@ -23,5 +23,8 @@ td.mat-cell {
     line-height: 130%;
     color: #0B4051;
     border-bottom: 5px solid #ffffff;
+}
 
+.mat-column-dataNascimento, .mat-column-dataCadastro {
+    text-align: center;
 }

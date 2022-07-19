@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { DialogInfoComponent } from '../dialog-info/dialog-info.component';
+import { CustomerService } from '../services/customer.service';
 import { CustomValidators } from '../validators/custom-validators';
 
 @Component({
@@ -14,7 +18,11 @@ export class CreateCustomerComponent implements OnInit {
   maxDate: Date;
 
 
-  constructor() {
+  constructor(
+    private customerService: CustomerService,
+    public dialog: MatDialog,
+    private router: Router,
+  ) {
     this.createForm();
   }
 
@@ -47,6 +55,22 @@ export class CreateCustomerComponent implements OnInit {
   get form(): { [key: string]: AbstractControl; }
   {
       return this.customerFormGroup.controls;
+  }
+
+  saveCustomer() {
+    
+
+
+
+    this.customerService.insertCustomer(this.customerFormGroup.value)
+      .subscribe(() => {
+        this.dialog.open(DialogInfoComponent)
+          .afterClosed().subscribe(() => {
+            
+            this.router.navigate(['/customers']);
+          });  
+      });
+
   }
 
 }

@@ -1,61 +1,69 @@
 {
-    "clientes": [
-        {
-            "id": 1,
-            "nome": "Ana Paula Pereira",
-            "cpf": "44099040003",
-            "dataNascimento": "20/05/1988",
-            "dataCadastro": "02/05/2022",
-            "rendaMensal": 2000
-        },
-        {
-            "id": 2,
-            "nome": "Carlos Soares",
-            "cpf": "87770820014",
-            "dataNascimento": "20/05/1988",
-            "dataCadastro": "02/05/2022",
-            "rendaMensal": 3000
-        },
-        {
-            "id": 3,
-            "nome": "Daniel Santos",
-            "cpf": "55780683085",
-            "dataNascimento": "01/05/1988",
-            "dataCadastro": "02/05/2022",
-            "rendaMensal": 7000
-        },
-        {
-            "id": 4,
-            "nome": "Edilene Souza",
-            "cpf": "93116898073",
-            "dataNascimento": "20/05/1988",
-            "dataCadastro": "02/05/2022",
-            "rendaMensal": 4000
-        },
-        {
-            "id": 5,
-            "nome": "Edgar Mendes",
-            "cpf": "88648476267",
-            "dataNascimento": "29/04/1990",
-            "dataCadastro": "18/07/2022",
-            "rendaMensal": 4500
-        },
-        {
-            "id": 6,
-            "nome": "Marcos Fabiano Rocha",
-            "cpf": "44141463213",
-            "dataNascimento": "16/01/2000",
-            "dataCadastro": "01/07/2022",
-            "rendaMensal": 4500
-        },
-        {
-            "id": 7,
-            "nome": "Renato Soares Machado Filho",
-            "cpf": "79694662222",
-            "dataNascimento": "16/01/2000",
-            "dataCadastro": "01/07/2022",
-            "rendaMensal": 12700
-        }
-
-    ]
+  "clientes": [
+    {
+      "id": 1,
+      "nome": "Ana Paula Pereira",
+      "cpf": "44099040003",
+      "dataNascimento": "1988-20-05T03:00:00.000Z",
+      "dataCadastro": "2022-02-05T03:00:00.000Z",
+      "rendaMensal": 2000
+    },
+    {
+      "id": 2,
+      "nome": "Carlos Soares",
+      "cpf": "87770820014",
+      "dataNascimento": "1988-20-05T03:00:00.000Z",
+      "dataCadastro": "2022-02-05T03:00:00.000Z",
+      "rendaMensal": 3000
+    },
+    {
+      "id": 3,
+      "nome": "Daniel Santos",
+      "cpf": "55780683085",
+      "dataNascimento": "1988-01-05T03:00:00.000Z",
+      "dataCadastro": "2022-02-05T03:00:00.000Z",
+      "rendaMensal": 7000
+    },
+    {
+      "id": 4,
+      "nome": "Edilene Souza",
+      "cpf": "93116898073",
+      "dataNascimento": "1988-20-05T03:00:00.000Z",
+      "dataCadastro": "2022-02-05T03:00:00.000Z",
+      "rendaMensal": 4000
+    },
+    {
+      "id": 5,
+      "nome": "Edgar Mendes",
+      "cpf": "88648476267",
+      "dataNascimento": "1990-29-04T03:00:00.000Z",
+      "dataCadastro": "2020-12-07T03:00:00.000Z",
+      "rendaMensal": 4500
+    },
+    {
+      "id": 6,
+      "nome": "Marcos Fabiano Rocha",
+      "cpf": "44141463213",
+      "dataNascimento": "2000-16-01T03:00:00.000Z",
+      "dataCadastro": "2022-01-07T03:00:00.000Z",
+      "rendaMensal": 4500
+    },
+    {
+      "id": 7,
+      "nome": "Renato Soares Machado Filho",
+      "cpf": "79694662222",
+      "dataNascimento": "2000-01-16T03:00:00.000Z",
+      "dataCadastro": "2022-07-01T03:00:00.000Z",
+      "rendaMensal": 12700
+    },
+    {
+      "id": 8,
+      "nome": "Rui Barbosa Neto",
+      "cpf": "05545232133",
+      "dataNascimento": "1995-07-05T03:00:00.000Z",
+      "rendaMensal": 123.33,
+      "email": "asdas@asd.com.br",
+      "dataCadastro": "2022-07-19T14:56:01.220Z"
+    }
+  ]
 }
