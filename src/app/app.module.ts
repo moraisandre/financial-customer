@@ -12,6 +12,7 @@ import { CpfPipe } from './pipes/cpf.pipe';
 import { DialogConfirmationComponent } from './dialog-confirmation/dialog-confirmation.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CurrencyMaskModule } from 'ng2-currency-mask';
+import { NgxMaskModule, IConfig } from 'ngx-mask'
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { CurrencyMaskModule } from 'ng2-currency-mask';
     HttpClientModule,
     BrowserAnimationsModule,
     CurrencyMaskModule,
+    NgxMaskModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
