@@ -46,30 +46,4 @@ export class CustomValidators {
     
         return { cpfInvalido: true };
     }
-
-    static MaiorQue18Anos(controle: AbstractControl) {
-      const nascimento = controle.value;
-      const [ano, mes, dia] = nascimento.split('-');
-      const hoje = new Date();
-      const dataNascimento = new Date(ano, mes, dia, 0, 0, 0);
-      const tempoParaTeste = 1000 * 60 * 60 * 24 * 365 * 18; //18 anos em mili segundos...
-  
-      if (hoje.getTime() - dataNascimento.getTime() >= tempoParaTeste)
-        return null;
-  
-      return { menorDeIdade: true };
-    }
-
-    static MenorQue60Anos(controle: AbstractControl) {
-      const nascimento = controle.value;
-      const [ano, mes, dia] = nascimento.split('-');
-      const hoje = new Date();
-      const dataNascimento = new Date(ano, mes, dia, 0, 0, 0);
-      const tempoParaTeste = 1000 * 60 * 60 * 24 * 365 * 60; //18 anos em mili segundos...
-  
-      if (hoje.getTime() - dataNascimento.getTime() >= tempoParaTeste)
-        return null;
-  
-      return { maiorDeIdade: true };
-    }
 }

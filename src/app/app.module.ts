@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CpfPipe } from './pipes/cpf.pipe';
 import { DialogConfirmationComponent } from './dialog-confirmation/dialog-confirmation.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CurrencyMaskModule } from 'ng2-currency-mask';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AngularMaterialModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    CurrencyMaskModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

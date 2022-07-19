@@ -10,6 +10,8 @@ import { CustomValidators } from '../validators/custom-validators';
 export class CreateCustomerComponent implements OnInit {
 
   customerFormGroup: FormGroup;
+  minDate: Date;
+  maxDate: Date;
 
 
   constructor() {
@@ -17,6 +19,17 @@ export class CreateCustomerComponent implements OnInit {
   }
 
   ngOnInit() {
+    const today = new Date();
+    this.minDate = new Date(
+      today.getFullYear() - 60,
+      today.getMonth(),
+      today.getDate()
+    );
+    this.maxDate = new Date(
+      today.getFullYear() - 18,
+      today.getMonth(),
+      today.getDate()
+    );
   }
 
   createForm() {
@@ -24,7 +37,7 @@ export class CreateCustomerComponent implements OnInit {
       id: new FormControl(0),
       nome: new FormControl('', Validators.required),
       cpf: new FormControl('', [Validators.required, CustomValidators.ValidaCpf]),
-      dataNascimento: new FormControl('', [Validators.required, CustomValidators.MaiorQue18Anos, CustomValidators.MenorQue60Anos]),
+      dataNascimento: new FormControl('', Validators.required),
       rendaMensal: new FormControl('', [Validators.required, Validators.min(1)]),
       email: new FormControl('', [Validators.required, Validators.email]),
       dataCadastro: new FormControl('')

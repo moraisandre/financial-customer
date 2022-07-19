@@ -19,7 +19,7 @@
                     <div *ngIf="form['cpf'].errors['required']">
                         CPF é obrigatório
                     </div>
-                    <div *ngIf="form['cpf'].errors['email']">
+                    <div *ngIf="form['cpf'].errors['cpfInvalido']">
                         CPF inválido
                     </div>
                 </mat-error>
@@ -29,16 +29,25 @@
         <mat-grid-tile>
             <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker="false">
                 <mat-label>Data de Nascimento</mat-label>
-                <input matInput [matDatepicker]="picker">
+                <input matInput [matDatepicker]="picker"  [min]="minDate" [max]="maxDate">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker startView="multi-year"></mat-datepicker>
+                <mat-error *ngIf="!form['dataNascimento'].pristine && form['dataNascimento'].errors" class="invalid-feedback">
+                    <div *ngIf="form['dataNascimento'].errors['required']">
+                        Data de Nascimento é obrigatório
+                    </div>
+                    <div *ngIf="form['dataNascimento'].errors['min']">
+                        O cliente tem que ser maior de idade
+                    </div>
+                </mat-error>
             </mat-form-field>
         </mat-grid-tile>
     
         <mat-grid-tile>
             <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker="false">
                 <mat-label>Renda Mensal</mat-label>
-                <input matInput placeholder="Insira a renda do cliente" formControlName="rendaMensal">
+                <input matInput placeholder="Insira a renda do cliente" formControlName="rendaMensal"
+                    currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }">
                 <mat-error *ngIf="!form['rendaMensal'].pristine && form['rendaMensal'].errors" class="invalid-feedback">
                     <div *ngIf="form['rendaMensal'].errors['required']">
                         Renda Mensal é obrigatório
