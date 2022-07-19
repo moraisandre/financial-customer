@@ -1,47 +1,78 @@
 <h1>CADASTRO DE CLIENTES</h1>
-  <mat-grid-list cols="4" rowHeight="100px">
-    <mat-grid-tile colspan="2">
-        <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker="false">
-          <mat-label>Nome</mat-label>
-          <input matInput placeholder="Informe o Nome">
-        </mat-form-field>
-    </mat-grid-tile>
 
-    <mat-grid-tile>
-        <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker="false">
-          <mat-label>CPF</mat-label>
-          <input matInput placeholder="Insira o CPF">
-        </mat-form-field>
-    </mat-grid-tile>
+<form [formGroup]="customerFormGroup">
 
-    <mat-grid-tile>
-        <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker="false">
-          <mat-label>Data de Nascimento</mat-label>
-          <input matInput [matDatepicker]="picker">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker startView="multi-year"></mat-datepicker>
-        </mat-form-field>
-    </mat-grid-tile>
+    <mat-grid-list cols="4" rowHeight="100px">
+        <mat-grid-tile colspan="2">
+            <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker="false">
+                <mat-label>Nome</mat-label>
+                <input matInput placeholder="Informe o Nome" formControlName="nome">
+            </mat-form-field>
+        </mat-grid-tile>
+    
+        <mat-grid-tile>
+            <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker="false">
+                <mat-label>CPF</mat-label>
+                <input matInput placeholder="Insira o CPF" formControlName="cpf">
 
-    <mat-grid-tile>
-        <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker="false">
-          <mat-label>Renda Mensal</mat-label>
-          <input matInput placeholder="Insira o CPF">
-        </mat-form-field>
-    </mat-grid-tile>
+                <mat-error *ngIf="!form['cpf'].pristine && form['cpf'].errors" class="invalid-feedback">
+                    <div *ngIf="form['cpf'].errors['required']">
+                        CPF é obrigatório
+                    </div>
+                    <div *ngIf="form['cpf'].errors['email']">
+                        CPF inválido
+                    </div>
+                </mat-error>
+            </mat-form-field>
+        </mat-grid-tile>
+    
+        <mat-grid-tile>
+            <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker="false">
+                <mat-label>Data de Nascimento</mat-label>
+                <input matInput [matDatepicker]="picker">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker startView="multi-year"></mat-datepicker>
+            </mat-form-field>
+        </mat-grid-tile>
+    
+        <mat-grid-tile>
+            <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker="false">
+                <mat-label>Renda Mensal</mat-label>
+                <input matInput placeholder="Insira a renda do cliente" formControlName="rendaMensal">
+                <mat-error *ngIf="!form['rendaMensal'].pristine && form['rendaMensal'].errors" class="invalid-feedback">
+                    <div *ngIf="form['rendaMensal'].errors['required']">
+                        Renda Mensal é obrigatório
+                    </div>
+                    <div *ngIf="form['rendaMensal'].errors['min']">
+                        Renda tem que ser maior do que zero
+                    </div>
+                </mat-error>
+            </mat-form-field>
+        </mat-grid-tile>
+    
+        <mat-grid-tile colspan="3">
+            <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker="false">
+                <mat-label>E-mail</mat-label>
+                <input matInput placeholder="Informe o e-mail" formControlName="email">
 
-    <mat-grid-tile colspan="3">
-        <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker="false">
-          <mat-label>E-mail</mat-label>
-          <input matInput placeholder="Informe o e-mail">
-        </mat-form-field>
-    </mat-grid-tile>
+                <mat-error *ngIf="!form['email'].pristine && form['email'].errors" class="invalid-feedback">
+                    <div *ngIf="form['email'].errors['required']">
+                        E-mail é obrigatório
+                    </div>
+                    <div *ngIf="form['email'].errors['email']">
+                        E-mail inválido
+                    </div>
+                </mat-error>
+            </mat-form-field>
+        </mat-grid-tile>
+    
+    </mat-grid-list>
+</form>
 
-  </mat-grid-list>
 
   
-  <p class="required-info">
+<p class="required-info">
     *Campos com preenchimento obrigatório
-  </p>
-  
-  <button mat-flat-button color="accent">Salvar</button>
+</p>
+
+<button mat-flat-button color="accent">Salvar</button>
