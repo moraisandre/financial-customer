@@ -1,6 +1,8 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatInput } from '@angular/material/input';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { DialogConfirmationComponent } from '../dialog-confirmation/dialog-confirmation.component';
 import { Customer } from '../models/customer';
@@ -11,12 +13,14 @@ import { CustomerService } from '../services/customer.service';
   templateUrl: './table-customer.component.html',
   styleUrls: ['./table-customer.component.css']
 })
-export class TableCustomerComponent implements OnInit, AfterViewInit {
+export class TableCustomerComponent implements OnInit {
   displayedColumns: string[] = ['nome', 'cpf', 'dataNascimento', 'dataCadastro', 'rendaMensal', 'acao'];
   dataSource = new MatTableDataSource<Customer>();
-  
+  filterInput = '';
+
   @ViewChild(MatPaginator) paginator: MatPaginator;
   pageEvent: PageEvent;
+  @ViewChild(MatSort) sort: MatSort;
 
   constructor(
     private customerService: CustomerService,
@@ -24,27 +28,29 @@ export class TableCustomerComponent implements OnInit, AfterViewInit {
   ) { }
 
   ngOnInit() {
-    // this.pageEvent = new PageEvent();
-    // this.pageEvent.pageIndex = 1;
-    // this.pageEvent.pageSize = 5;
-
     this.searchCustomer();
   }
 
-  ngAfterViewInit() {
-    // this.dataSource.paginator = this.paginator;
+  applyFilter() {
+    this.dataSource.filter = this.filterInput.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+
+  clearField() {
+    this.filterInput = '';
+    this.searchCustomer();
   }
 
   searchCustomer() {
-    console.log(this.paginator);
-    console.log(this.pageEvent);
     
     this.customerService.getCustomers(this.pageEvent)
       .subscribe(response => {
         this.dataSource = new MatTableDataSource<Customer>(response);
         this.dataSource.paginator = this.paginator;
-        console.log(this.paginator);
-        console.log(this.pageEvent);
+        this.dataSource.sort = this.sort;
       });
   }
 

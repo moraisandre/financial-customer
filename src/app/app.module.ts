@@ -10,6 +10,7 @@ import { TableCustomerComponent } from './table-customer/table-customer.componen
 import { HttpClientModule } from '@angular/common/http';
 import { CpfPipe } from './pipes/cpf.pipe';
 import { DialogConfirmationComponent } from './dialog-confirmation/dialog-confirmation.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,9 +23,10 @@ import { DialogConfirmationComponent } from './dialog-confirmation/dialog-confir
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     AngularMaterialModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

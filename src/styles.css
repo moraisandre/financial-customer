@@ -17,6 +17,11 @@ mat-form-field {
 }
 
 .search-btn {
-    height: 50px;
-    margin-top: -20px !important;
+    height: 40px;
+    /* margin-top: -20px !important; */
 }
+
+.search-icon {
+    width: 32px !important;
+}
+
